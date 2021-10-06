@@ -1,2 +1,2 @@
 # ionic
-tugas tugas ionic kntl
+tugas uas ionic kntl
