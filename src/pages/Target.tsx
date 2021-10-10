@@ -1,10 +1,11 @@
-import { IonAvatar, IonButton, IonButtons, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonMenuButton, IonPage, IonTitle, IonToolbar } from "@ionic/react"
-import { female, close, heart, male, search } from "ionicons/icons"
-import { DAFTAR } from "./Daftar";
+import { IonAvatar, IonButton, IonButtons, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonActionSheet } from "@ionic/react"
+import { female, close, heart, male, search, moon, checkmarkCircle, closeCircle } from "ionicons/icons"
+import { useContext } from "react";
+import TargetContext from "./data/target-context";
 
-const celectedItem = DAFTAR.filter(data => data.target === true);
-console.log(celectedItem.length);
 export const Target: React.FC = () => {
+    const targetCtx = useContext(TargetContext);
+    const [present, dismiss] = useIonActionSheet();
     return (
         <IonPage>
             <IonHeader>
@@ -23,14 +24,20 @@ export const Target: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent color="light" style={{ textAlign: 'center' }}>
-                {celectedItem.length != 0 ?
-                    celectedItem.map(data => (
+                {targetCtx.targets.length != 0 ?
+                    targetCtx.targets.map(data => (
                         <IonItemSliding key={data.id}>
                             <IonItemOptions side='end'>
-                                <IonItemOption color='danger'>
+                                <IonItemOption color='danger' onClick={
+                                    () =>
+                                    present({
+                                        mode: 'ios',buttons: [{ icon: checkmarkCircle,text: 'Woiya dong' }, { icon: closeCircle, role: 'destructive',text: 'G' }],
+                                      header: 'Yakin ?'
+                                    })
+                                }>
                                     <IonIcon slot='icon-only'
                                         color='light'
-                                        icon={data.target != false ? close : heart} />
+                                        icon={ close } />
                                 </IonItemOption>
                             </IonItemOptions>
 

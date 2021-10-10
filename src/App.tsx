@@ -22,23 +22,10 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import Daftar from './pages/Daftar';
-import { SplashScreen } from '@capacitor/splash-screen';
-import { Profil } from './pages/Profil';
+import { Profil } from './pages/profil';
 import { Target } from './pages/Target';
 
-// Hide the splash (you should do this on app launch)
-SplashScreen.hide();
-
-// Show the splash for an indefinite amount of time:
-SplashScreen.show({
-  autoHide: false
-});
-
-// Show the splash for two seconds and then automatically hide it:
-SplashScreen.show({
-  showDuration: 2000,
-  autoHide: true
-});
+import TargetContextProvider from './pages/data/TargetContextProvider';
 
 const App: React.FC = () => (
   <IonApp>
@@ -72,12 +59,14 @@ const App: React.FC = () => (
           </IonList>
         </IonContent>
       </IonMenu>
+      <TargetContextProvider>
       <IonRouterOutlet id="main">
         <Route path="/daftar" component={Daftar} />
         <Route exact path="/target" component={Target} />
         <Route exact path="/profil" component={Profil} />
         <Redirect exact from="/" to="/daftar" />
       </IonRouterOutlet>
+      </TargetContextProvider>
     </IonReactRouter>
   </IonApp>
 );

@@ -1,0 +1,31 @@
+.avatar {
+
+    border-radius: 100%;
+    border: 3px solid var(--ion-color-tertiary);
+    padding: 0.2rem;
+}
+.avatar img {
+    border-radius: 100%;
+}
+
+.profileDetails {
+
+
+}
+
+.profileDetails h2,
+.profileDetails h4 {
+
+    margin: 0;
+    padding: 0;
+}
+
+.profileDetails h2 {
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+
+.profileDetails h4 {
+    font-weight: lighter;
+}
