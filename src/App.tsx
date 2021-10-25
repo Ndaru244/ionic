@@ -1,7 +1,7 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonApp, IonBadge, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import { calendar, happy, informationCircle, map, personCircle, sad } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -21,18 +21,33 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { GoodMemories } from './pages/GoodMemories';
+import { BadMemories } from './pages/BadMemories';
+import { NewMemory } from './pages/NewMemory';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
+    <IonTabs>
+    <IonRouterOutlet>
+        <Route exact path="/good" component={GoodMemories} />
+        <Route exact path="/bad" component={BadMemories} />
+        <Route exact path="/new" component={NewMemory} />
+        <Redirect exact path="/" to="/good" />
       </IonRouterOutlet>
+    <IonTabBar slot="bottom">
+
+      <IonTabButton tab="good" href="/good">
+        <IonIcon icon={happy} />
+        <IonLabel>Good Memories</IonLabel>
+      </IonTabButton>
+
+      <IonTabButton tab="bad" href="/bad">
+        <IonIcon icon={sad} />
+        <IonLabel>Bad Memories</IonLabel>
+      </IonTabButton>
+    </IonTabBar>
+  </IonTabs>
     </IonReactRouter>
   </IonApp>
 );
