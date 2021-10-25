@@ -1,2 +1,2 @@
 # ionic
-tugas tugas ionic kntl
+tugas tugas ionic, tugas2 ada di branch.
