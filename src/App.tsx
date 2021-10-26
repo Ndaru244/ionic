@@ -24,32 +24,44 @@ import './theme/variables.css';
 import { GoodMemories } from './pages/GoodMemories';
 import { BadMemories } from './pages/BadMemories';
 import { NewMemory } from './pages/NewMemory';
+import MemoriesContextProvider from './pages/data/MemoriesContextProvider';
+import { useContext, useEffect } from 'react';
+import MemoriesContext from './pages/data/memories-context';
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-    <IonTabs>
-    <IonRouterOutlet>
-        <Route exact path="/good" component={GoodMemories} />
-        <Route exact path="/bad" component={BadMemories} />
-        <Route exact path="/new" component={NewMemory} />
-        <Redirect exact path="/" to="/good" />
-      </IonRouterOutlet>
-    <IonTabBar slot="bottom">
+const App: React.FC = () => {
+  const memoriesCtx = useContext(MemoriesContext);
+  const { initContext } = memoriesCtx;
+  useEffect(() => {
+    initContext();
+  }, [initContext]);
+  return (
+    <IonApp>
+      <IonReactRouter>
+        {/* <MemoriesContextProvider> */}
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route exact path="/good" component={GoodMemories} />
+            <Route exact path="/bad" component={BadMemories} />
+            <Route exact path="/new" component={NewMemory} />
+            <Redirect exact path="/" to="/good" />
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
 
-      <IonTabButton tab="good" href="/good">
-        <IonIcon icon={happy} />
-        <IonLabel>Good Memories</IonLabel>
-      </IonTabButton>
+            <IonTabButton tab="good" href="/good">
+              <IonIcon icon={happy} />
+              <IonLabel>Good Memories</IonLabel>
+            </IonTabButton>
 
-      <IonTabButton tab="bad" href="/bad">
-        <IonIcon icon={sad} />
-        <IonLabel>Bad Memories</IonLabel>
-      </IonTabButton>
-    </IonTabBar>
-  </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+            <IonTabButton tab="bad" href="/bad">
+              <IonIcon icon={sad} />
+              <IonLabel>Bad Memories</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+        {/* </MemoriesContextProvider> */}
+      </IonReactRouter>
+    </IonApp>
+  )
+};
 
 export default App;

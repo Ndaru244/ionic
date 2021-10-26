@@ -1,6 +1,8 @@
-import { IonButton, IonButtons, IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar, isPlatform } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonFab, IonFabButton, IonGrid, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar, isPlatform } from '@ionic/react';
 import { addSharp } from 'ionicons/icons';
+import { Memorys } from '../components/Memorys';
 export const GoodMemories: React.FC = () => {
+    const s = 'good';
     return (
         <IonPage>
             <IonHeader>
@@ -16,14 +18,19 @@ export const GoodMemories: React.FC = () => {
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
-            <IonContent>
-            {isPlatform('android') ?
-                <IonFab horizontal="end" vertical="bottom" slot="fixed">
-                    <IonFabButton color="tertiary" routerLink="/new">
-                        <IonIcon icon={addSharp} />
-                    </IonFabButton>
-                </IonFab> : ''}
 
+            <IonContent>
+                {isPlatform('android') ?
+                    <IonFab horizontal="end" vertical="bottom" slot="fixed">
+                        <IonFabButton color="tertiary" routerLink="/new">
+                            <IonIcon icon={addSharp} />
+                        </IonFabButton>
+                    </IonFab> : ''}
+
+
+                <IonGrid>
+                <Memorys selected={s} />
+                </IonGrid>
             </IonContent>
         </IonPage>
     );
