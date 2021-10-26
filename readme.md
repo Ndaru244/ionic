@@ -1,1 +1,1 @@
-UTS Ionic Kntl
+UTS Ionic
