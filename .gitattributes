@@ -1,2 +1,1 @@
-* linguist-vendored
-*.tsx linguist-vendored=false
+*.tsx linguist-language=React
