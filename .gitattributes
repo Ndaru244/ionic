@@ -1,1 +1,11 @@
-*.tsx linguist-detectable=true
+TSX:
+  type: programming
+  color: "#2b7489"
+  group: TypeScript
+  extensions:
+  - ".tsx"
+  tm_scope: source.tsx
+  ace_mode: javascript
+  codemirror_mode: jsx
+  codemirror_mime_type: text/jsx
+  language_id: 94901924
