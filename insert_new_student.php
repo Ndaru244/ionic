@@ -18,7 +18,7 @@ if (isset($_POST["nim"])
     $prodi  =  $_POST["prodi"];
     $foto   =  $_FILES["foto"];
 
-    require_once __DIR__ . "dbconfig.php";
+    require_once __DIR__ . "/dbconfig.php";
 
     $db = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE) or die(mysqli_connect_error());
     
