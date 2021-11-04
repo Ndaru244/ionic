@@ -1,0 +1,7 @@
+{
+  "name": "sesi_8",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
