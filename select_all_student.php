@@ -29,6 +29,7 @@ if (mysqli_num_rows($result) > 0) {
     $respone["success"] = 1;
     echo json_encode($respone);
 } else {
+    $respone["mahasiswa"] = array();
     $respone["success"] = 0;
     $respone["message"] = "Tidak Ada Data Yang Ditemukan";
     echo json_encode($respone);
