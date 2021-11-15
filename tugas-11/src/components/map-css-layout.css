@@ -1,0 +1,21 @@
+.card-googlemap{
+    width: 150px;
+    height: 150px;
+}
+
+.map-frame{
+    width: 100%;
+    height: 150px;
+}
+
+.mt-10px{
+    margin-top: 10px;
+}
+
+.mb-150{
+    margin-bottom: 150px;
+}
+
+.mt-150px{
+    margin-top: 150px;
+}
