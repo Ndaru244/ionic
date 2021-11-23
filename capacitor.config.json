@@ -1,0 +1,11 @@
+{
+	"appId": "com.magfur.demoT12",
+	"appName": "demo tugas 12",
+	"webDir": "build",
+	"bundledWebRuntime": false,
+	"plugins":{
+			"PushNotifications":{
+				"presentationOptions": ["badge","sound","alert"]
+			}
+	}
+}
