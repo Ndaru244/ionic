@@ -1,0 +1,7 @@
+{
+  "name": "ES000000008_UnggulPrayuda_UAS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
